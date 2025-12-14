@@ -1,58 +1,56 @@
 # Gym 2.0
 
-GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige Automatisierung. Mitglieder verwalten Training, Zahlungen und Einkäufe bequem online, Trainer bieten digitale Trainingspläne an, und Lieferanten steuern den Lagerbestand direkt über das System.
+Warum noch ein Gym mit Personal, wenn man 24/7 mit einfachen technischen Mitteln ein Studio betreten kann?
+Durch einfaches Webdesign und lauffähigen Containern ist diese Applikation ein Allrounder für die Fitness-Szene!
 
-## Description
+GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige Automatisierung. Mitglieder verwalten Training, Zahlungen und Einkäufe bequem online und die Automaten für Snacks/Getränke verwalten automatisch den Lagerbestand über das System.
 
-An in-depth paragraph about your project and overview of use.
+## Funktionen
+* Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
+* Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
+* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden per Account gekauft und am Ende des Monats mit dem monatliche Betrag dazu abgebucht.
+* Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die noch übrig sind. Diese wird als LOG-Datei ausgegeben und kann entsprechend dem Lieferanten gegeben werden. 
 
-## Getting Started
+## Skizze
+![ProjektSkizze](ProjektSkizze.jpg)
 
-### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+## Programmspezifisches
 
-### Installing
+### AWS
+Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwendet:
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* alle Tools auflisten
 
-### Executing program
+### Download
 
-* How to run the program
-* Step-by-step bullets
+* wenn überhaupt nötig
+
+### Ausführung
+* Step-by-Step wie man das aufsetzt bzw nur Anwendungsschicht
 ```
 code blocks for commands
 ```
 
 ## Help
+Brauchen wir wahrscheinlich nicht
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+## Autoren
 
-## Authors
+Contributors:
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Benedikt Erb      887 383
+Yannis-Michel     887 409
+David Tevs        887 387
+Albert Zinn       887 388
 
 ## Version History
 
 * 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+
 * 0.1
-    * Initial Release
 
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
+## Hinweise
 
 Inspiration, code snippets, etc.
 * [awesome-readme](https://github.com/matiassingers/awesome-readme)
