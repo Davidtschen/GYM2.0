@@ -13,6 +13,9 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 * [Definition of Ready](https://github.com/Davidchen/GYM2.0/edit/main/DOR.md)
 * [Definition of Done](https://github.com/Davidchen/GYM2.0/edit/main/DOD.md)
 * [How to Test](https://github.com/Davidchen/GYM2.0/edit/main/Testing.md)
+
+# Projekt
+
 ## Funktionen
 * Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
 * Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
@@ -23,7 +26,7 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 ![ProjektSkizze](ProjektSkizze.jpg)
 
 
-# Programmspezifisches
+## Programmspezifisches
 
 ### AWS
 Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwendet:
@@ -40,21 +43,21 @@ Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwen
 code blocks for commands
 ```
 
-## Rollen
+## Rollen (In die Teamregeln)
 Scrummaster:
 Qualitätsmanagement:
 Backend- & Daten- Experte:
 Frontend Experte:
 Sicherheits- und Accountmanagement:
 
-## Branchbenennung
+## Branchbenennung (DOR)
 Branches werden unter dem Muster
 ```
 code blocks for commands
 ```
 benannt
 
-## Issuebenennung
+## Issuebenennung (DOR)
 Issues werden unter dem Muster
 ```
 code blocks for commands
