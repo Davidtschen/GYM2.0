@@ -4,7 +4,15 @@ Warum noch ein Gym mit Personal, wenn man 24/7 mit einfachen technischen Mitteln
 Durch einfaches Webdesign und lauffähigen Containern ist diese Applikation ein Allrounder für die Fitness-Szene!
 
 GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige Automatisierung. Mitglieder verwalten Training, Zahlungen und Einkäufe bequem online und die Automaten für Snacks/Getränke verwalten automatisch den Lagerbestand über das System.
+# Allgemeines
+* [Teamspezifisches](https://github.com/Davidchen/GYM2.0/edit/main/Teamspezifisches.md)
+* [Organisatorisches](https://github.com/Davidchen/GYM2.0/edit/main/Organisatorisches.md)
 
+# Regeln
+* [Teamregeln](https://github.com/Davidchen/GYM2.0/edit/main/Regeln.md)
+* [Definition of Ready](https://github.com/Davidchen/GYM2.0/edit/main/DOR.md)
+* [Definition of Done](https://github.com/Davidchen/GYM2.0/edit/main/DOD.md)
+* [How to Test](https://github.com/Davidchen/GYM2.0/edit/main/Testing.md)
 ## Funktionen
 * Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
 * Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
@@ -31,7 +39,6 @@ Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwen
 ```
 code blocks for commands
 ```
-# Teamspezifisches
 
 ## Rollen
 Scrummaster:
@@ -64,10 +71,10 @@ benannt
 
 Contributors:
 
-Benedikt Erb      887 383
-Yannis-Michel     887 409
-David Tevs        887 387
-Albert Zinn       887 388
+Benedikt Erb     
+Yannis-Michel    
+David Tevs      
+Albert Zinn       
 
 ## Version History
 
