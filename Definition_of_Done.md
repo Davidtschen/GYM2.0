@@ -16,12 +16,12 @@ Ein Issue gilt als "Done", wenn folgende Kriterien erfüllt sind:
 - [ ] Die Abnahmekriterien des Issues wurden vom Team/Entwickler selbst verifiziert.
 - [ ] Der Merge-Request wurde nach den Richtlinien geschrieben.
 
-### 5. Testen
+### 4. Testen
 - [ ] **Lambda:** Jeder betroffene produktive Handler hat eine eigene Testdatei.
 - [ ] **API Gateway:** HTTP-Statuscodes (2xx, 4xx, 5xx) und Response-Inhalte werden validiert.
 - [ ] **Cognito:** Tests enthalten simulierte Events mit korrekten Cognito-Claims/Gruppen.
 - [ ] **DynamoDB:** DB-Zugriffe sind gemockt (inkl. ResourceNotFound/ConditionalCheck-Fehlern).
 
-### 6. Pipeline & Infrastruktur
+### 5. Pipeline & Infrastruktur
 - [ ] **Lokal:** `npm test` (oder vergleichbar) lief lokal erfolgreich durch.
 - [ ] **CI/CD:** Die automatisierte Pipeline zeigt keine Fehler an.
