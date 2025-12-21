@@ -52,7 +52,7 @@ Frontend Experte:                    Benedikt Erb
 Sicherheits- und Accountmanagement:  Benedikt Erb
 Businesslogik:                       David Tevs, Yannis Michel 
 
-## Contributors:
+##Contributors:
 
 Benedikt Erb     
 Yannis-Michel    
