@@ -27,3 +27,6 @@ Ein Issue gilt als "Done", wenn folgende Kriterien erfüllt sind:
 - [ ] **CI/CD:** Die automatisierte Pipeline zeigt keine Fehler an.
 
 
+Beschreibung:
+
+<Eigene Beschreibung>
