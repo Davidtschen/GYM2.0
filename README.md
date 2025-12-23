@@ -47,14 +47,7 @@ Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwen
 * Step-by-Step wie man das aufsetzt bzw nur Anwendungsschicht
 ```
 code blocks for commands
-```
-
-## Contributors:
-
-Benedikt Erb     
-Yannis-Michel    
-David Tevs      
-Albert Zinn       
+```     
 
 ## Version History 
 * V0.1 Fundemente gesetzt und Funktionalität xxx umgesetzt
