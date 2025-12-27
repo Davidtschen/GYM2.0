@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Wiki - Issue Template Richtlinien
+    url: https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Issue-Template.md
+    about: Weitere Informationen zu Issue-Richtlinien im Projekt-Wiki
+  - name: Team Kommunikation
+    url: https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Organisatorisches.md
+    about: Informationen zu Teamkommunikation und Meetings
