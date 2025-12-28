@@ -5,6 +5,9 @@
 - Als Nutzer möchte ich was kaufen können (Snacks, Getränke, etc.)
 - Als Nutzer möchte ich meine Daten jederzeit ändern können
 - Als Nutzer möchte ich meine Mitgliedschaft kündigen können
+- Als Nutzer möchte ich auf der Weboberfläche sehen können, wie stark das Fitnessstudio aktuell ausgelastet ist, damit ich meinen Besuch besser planen kann
+- Als Nutzer möchte ich meinen persönlichen Loyalitätsstatus (z. B. Standard, Silber, Gold) basierend auf meinen monatlichen Ausgaben sehen können
+- Als Nutzer möchte ich eine Warnung erhalten, wenn meine monatlichen Ausgaben einen festgelegten Grenzwert überschreiten, um meine Kosten besser kontrollieren zu können
 - Als Admin möchte ich meine Gesamteinnahmen sehen
 - Als Admin möchte ich Nutzer Benachrichtigen können (Events, Erinnerungen)
 - Als Admin möchte ich einen automatisierten Bestellservice am Snackautomaten
