@@ -1,0 +1,26 @@
+name: Validate repository
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Nur als Beispiel: prüft, ob sich Dateien sauber lesen lassen
+      - name: Basic file validation
+        run: |
+          echo "Running basic validation..."
+          find . -name "*.json" -print -exec jq empty {} \; || true
+          find . -name "*.yml" -o -name "*.yaml" -print -exec yamllint {} \; || true
+
+      # Platzhalter für projekt-spezifische Checks
+      - name: Run project checks (placeholder)
+        run: echo "No build configured yet — pipeline runs successfully."
