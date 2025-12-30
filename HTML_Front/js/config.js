@@ -3,8 +3,7 @@ export const cognitoConfig = {
     clientId: "2mpljb6qtrof7qbsa05e3qn1g8",
     redirectUri: "https://amplify.d1v1bk12uazf00.amplifyapp.com/callback.html",
     logoutUri: "https://amplify.d1v1bk12uazf00.amplifyapp.com",
-    cognitoDomain: "https://eu-north-13b5yu2rcv.auth.eu-north-1.amazoncognito.com
-",
+    cognitoDomain: "https://eu-north-13b5yu2rcv.auth.eu-north-1.amazoncognito.com",
     scope: "openid email profile"
 };
 
