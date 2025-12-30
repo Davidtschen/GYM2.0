@@ -32,3 +32,17 @@ export function logout() {
 
     window.location.href = logoutUrl;
 }
+
+export function register() {
+    const { clientId, redirectUri, cognitoDomain, scope } = cognitoConfig;
+
+    const signupUrl =
+        `${cognitoDomain}/signup` +
+        `?client_id=${clientId}` +
+        `&response_type=code` +
+        `&scope=${encodeURIComponent(scope)}` +
+        `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+    window.location.href = signupUrl;
+}
+
