@@ -10,11 +10,25 @@ export const userManager = new UserManager({
 });
 
 export function login() {
-    return userManager.signinRedirect();
+    const { clientId, redirectUri, cognitoDomain, scope } = cognitoConfig;
+
+    const loginUrl =
+        `${cognitoDomain}/login` +
+        `?client_id=${clientId}` +
+        `&response_type=code` +
+        `&scope=${encodeURIComponent(scope)}` +
+        `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+    window.location.href = loginUrl;
 }
 
 export function logout() {
     const { clientId, logoutUri, cognitoDomain } = cognitoConfig;
-    window.location.href =
-        `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+
+    const logoutUrl =
+        `${cognitoDomain}/logout` +
+        `?client_id=${clientId}` +
+        `&logout_uri=${encodeURIComponent(logoutUri)}`;
+
+    window.location.href = logoutUrl;
 }
