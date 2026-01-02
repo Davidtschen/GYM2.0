@@ -29,6 +29,7 @@
 - Pipeline Besprechungen
 - Issues erstellt und besprochen
 
+
 # Protokoll 02.01.2026
 -	Lambda und API-Anbindung fertig
 -	Anleitungen fürs Aufsetzen und Code-Dokumentationen ausarbeiten
@@ -36,4 +37,5 @@
 -	Komplette Verknüpfung Front to Back
 -	Erweiterungen und Möglichkeiten
 -	Wiki Anpassungen und Docs durch Albert übernommen (Als Subissues)
+
 
