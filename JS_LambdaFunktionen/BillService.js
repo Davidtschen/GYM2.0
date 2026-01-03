@@ -1,14 +1,21 @@
+/*
+BillService wartet auf das Event getriggert vom Frontend. Das Event bestimmt per Knopfdruck, welches Produkt von welchem Member gekauft wird.
+Die Abwicklung eines Zahlungsadienstes wird simuliert. Danach wird die Bestellung in der Order Tabelle gespeichert und der Lagerbestand reduziert.
+*/
 const { DynamoDBClient } = import("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, UpdateCommand, PutCommand } = import("@aws-sdk/lib-dynamodb");
-const { v4: uuidv4 } = import("uuid");
+import { v4 as uuidv4 } from "uuid";
+
 
 const client = new DynamoDBClient();
 const doc = DynamoDBDocumentClient.from(client);
 
-const INVENTORY_TABLE = process.env.INVENTORY_TABLE;
-const ORDER_TABLE = process.env.ORDER_TABLE;
+const INVENTORY_TABLE = 'Inventory';
+const ORDER_TABLE = 'Order';
+const MEMBER_TABLE = 'Members';
 
-exports.handler = async (event) => {
+
+export const handler = async (event) => {
     const { produkt_id, p_name, preis, member_id } = JSON.parse(event.body);
 
     // 1) Lagerbestand atomar reduzieren
@@ -26,6 +33,7 @@ exports.handler = async (event) => {
                 ReturnValues: "UPDATED_NEW"
             })
         );
+        //Für den Fall dass es kein Bestand des Produktes gibt, erfolgt die entsprechende Ausgabe
     } catch (err) {
         if (err.name === "ConditionalCheckFailedException") {
             return {
@@ -36,6 +44,7 @@ exports.handler = async (event) => {
         throw err;
     }
 
+    // Nach erfolgreicher Übermittlung wird eine Logzeile erstellt und in der Log-Datenbank vermerkt
     // 2) Order / Log schreiben
     const order = {
         order_id: uuidv4(),
@@ -46,6 +55,7 @@ exports.handler = async (event) => {
         order_date: new Date().toISOString()
     };
 
+    // Eintrag in DB
     await doc.send(
         new PutCommand({
             TableName: ORDER_TABLE,
@@ -58,3 +68,9 @@ exports.handler = async (event) => {
         body: JSON.stringify(order)
     };
 };
+/*
+Nach der Funktion ist dann der Bestand entsprechend angepasst
+und für den Überblick der Kauf inklusive aller wichtigen Details (Preis, Datum, MemberId, ect.)
+gespeichert
+*/
+
