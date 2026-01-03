@@ -1,3 +1,7 @@
+/*
+Das LoggingService wird per EventBridge aufgerufen.
+Dabei wird ab dem 1. des Monats alle Einträge der Logtabelle als CSV in einem Bucket exportiert
+*/
 const { DynamoDBDocumentClient, ScanCommand } = import("@aws-sdk/lib-dynamodb");
 const { DynamoDBClient } = import("@aws-sdk/client-dynamodb");
 const { S3Client, PutObjectCommand } = import("@aws-sdk/client-s3");
@@ -9,7 +13,7 @@ const ORDER_TABLE = "Orders";
 const EXPORT_BUCKET = "amzn-my-export-bucket-gym2-0";
 
 exports.handler = async () => {
-    // 1) Alle Orders holen (ggf. filter by date in real)
+    // 1) Alle Orders holen
     const result = await ddb.send(new ScanCommand({ TableName: ORDER_TABLE }));
 
     const rows = result.Items || [];
@@ -34,3 +38,4 @@ exports.handler = async () => {
 
     return { file: key };
 };
+// Der entsprechende Einttrag wird in S3 gespeichert und die Funktion war erfolgreich
