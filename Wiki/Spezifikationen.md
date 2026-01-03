@@ -9,6 +9,7 @@
 - Als Nutzer möchte ich meinen persönlichen Loyalitätsstatus (z. B. Standard, Silber, Gold) basierend auf meinen monatlichen Ausgaben sehen können
 - Als Nutzer möchte ich eine Warnung erhalten, wenn meine monatlichen Ausgaben einen festgelegten Grenzwert überschreiten, um meine Kosten besser kontrollieren zu können
 - Als Nutzer möchte ich eine Übersicht meiner letzten Einkäufe sehen (Produkt, Preis, etc.), um meine Ausgaben im Studio zu verfolgen.
+- Als Nutzer möchte ich nach der Registrierung eine Bestätigungs-E-Mail erhalten, damit ich sicher sein kann, dass mein Konto erfolgreich erstellt wurde.
 - Als Admin möchte ich meine Gesamteinnahmen sehen
 - Als Admin möchte ich Nutzer benachrichtigen können (Events, Erinnerungen)
 - Als Admin möchte ich einen automatisierten Bestellservice am Snackautomaten
