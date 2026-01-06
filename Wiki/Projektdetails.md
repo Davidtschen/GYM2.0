@@ -54,9 +54,7 @@ In Bezug zu unserem Projekt verwenden wir das API Gateway für die folgenden Lam
 | Methode | Pfadname | Beschreibung |
 |--------|-----|--------------|
 | POST | /buy | Tätigt den Kauf eines Produktes |
-| POST | /user/check-userpool | Speichert den neu registrierten Benutzer in der Datenbank|
 | POST | /user/push-user | Ändert bestimmte Daten des Benutzers |
-| POST | /user/login-tracking | Setzt die Zeit des Attributs last_check_in auf die aktuelle Zeit des Logins |
 | DELETE | /user | Löscht den Benutzer aus der Datenbank |
 
 #### **Amazon Eventbridge (CloudWatchEvents)**
