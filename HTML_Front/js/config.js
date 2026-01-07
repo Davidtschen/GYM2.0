@@ -1,9 +1,9 @@
 export const cognitoConfig = {
-    authority: "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_3B5YU2rcV",
-    clientId: "2mpljb6qtrof7qbsa05e3qn1g8",
-    redirectUri: "https://amplify.d1v1bk12uazf00.amplifyapp.com/callback.html",
-    logoutUri: "https://amplify.d1v1bk12uazf00.amplifyapp.com",
-    cognitoDomain: "https://eu-north-13b5yu2rcv.auth.eu-north-1.amazoncognito.com",
+    authority: "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_anlv1kQRJ",
+    clientId: "64fqsf4bha6al02hpav3pu53vl",
+    redirectUri: "https://amplifyv2.d2r89bauojj5mo.amplifyapp.com/callback.html",
+    logoutUri: "https://amplifyv2.d2r89bauojj5mo.amplifyapp.com",
+    cognitoDomain: "https://eu-north-1anlv1kqrj.auth.eu-north-1.amazoncognito.com",
     scope: "openid email profile"
 };
 
