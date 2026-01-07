@@ -13,7 +13,6 @@ userManager.signinCallback()
         `;
         setTimeout(() => {
             logout();
-            window.location.href = "home.html";
         }, 1500);
     })
     .catch(err => {
