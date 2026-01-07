@@ -5,44 +5,27 @@ export const userManager = new UserManager({
     authority: cognitoConfig.authority,
     client_id: cognitoConfig.clientId,
     redirect_uri: cognitoConfig.redirectUri,
+    post_logout_redirect_uri: cognitoConfig.logoutUri,
     response_type: "code",
-    scope: cognitoConfig.scope
+    scope: cognitoConfig.scope,
+    automaticSilentRenew: false
 });
 
+// LOGIN
 export function login() {
-    const { clientId, redirectUri, cognitoDomain, scope } = cognitoConfig;
-
-    const loginUrl =
-        `${cognitoDomain}/login` +
-        `?client_id=${clientId}` +
-        `&response_type=code` +
-        `&scope=${encodeURIComponent(scope)}` +
-        `&redirect_uri=${encodeURIComponent(redirectUri)}`;
-
-    window.location.href = loginUrl;
+    userManager.signinRedirect();
 }
 
-export function logout() {
-    const { clientId, logoutUri, cognitoDomain } = cognitoConfig;
-
-    const logoutUrl =
-        `${cognitoDomain}/logout` +
-        `?client_id=${clientId}` +
-        `&logout_uri=${encodeURIComponent(logoutUri)}`;
-
-    window.location.href = logoutUrl;
-}
-
+// SIGNUP
 export function register() {
-    const { clientId, redirectUri, cognitoDomain, scope } = cognitoConfig;
-
-    const signupUrl =
-        `${cognitoDomain}/signup` +
-        `?client_id=${clientId}` +
-        `&response_type=code` +
-        `&scope=${encodeURIComponent(scope)}` +
-        `&redirect_uri=${encodeURIComponent(redirectUri)}`;
-
-    window.location.href = signupUrl;
+    userManager.signinRedirect({
+        extraQueryParams: {
+            screen_hint: "signup"
+        }
+    });
 }
 
+// LOGOUT
+export function logout() {
+    userManager.signoutRedirect();
+}
