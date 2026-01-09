@@ -13,7 +13,7 @@ export async function loadProducts() {
         const btn = document.createElement("button");
         btn.className = "Snack-button";
         btn.innerHTML = `
-            <img src=p.icon>
+            <img src="${p.icon}">
             <span>${p.p_name}</span>
             <p>${p.preis} €</p>
         `;
