@@ -18,7 +18,7 @@ export async function loadProducts() {
             <p>${p.preis} €</p>
         `;
 
-        btn.addEventListener("click", () => orderSnack(p.produkt_id));
+        btn.addEventListener("click", () => orderSnack(p.product_id));
         container.appendChild(btn);
     });
 }
