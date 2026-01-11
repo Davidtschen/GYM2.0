@@ -12,7 +12,7 @@ export async function orderSnack(product_id) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                product_id: product_id
+                produkt_id: product_id
             })
         });
 
