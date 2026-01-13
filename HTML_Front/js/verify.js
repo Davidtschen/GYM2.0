@@ -1,4 +1,4 @@
-import {CognitoIdentityProviderClient,ConfirmSignUpCommand} from "@aws-sdk/client-cognito-identity-provider";
+import {CognitoIdentityProviderClient,ConfirmSignUpCommand} from "https://cdn.jsdelivr.net/npm/@aws-sdk/client-cognito-identity-provider/+esm";
 import { cognitoConfig } from "./config.js";
 
 // Region und  Client_id aus config.js holen
