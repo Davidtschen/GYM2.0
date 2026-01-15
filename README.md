@@ -35,11 +35,6 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 
 ## Programmspezifisches
 
-### AWS
-Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwendet:
-
-* alle Tools auflisten
-
 ### Download
 
 * wenn überhaupt nötig
@@ -49,7 +44,3 @@ Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwen
 ```
 code blocks for commands
 ```     
-
-## Version History 
-* V0.1 Fundemente gesetzt und Funktionalität xxx umgesetzt
-* V0.2 
