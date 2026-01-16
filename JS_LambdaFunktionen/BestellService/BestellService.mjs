@@ -4,10 +4,6 @@
 // Abschließend versendet der Service eine Zusammenfassung per Amazon SES an das Verwaltungsteam,
 // die genau angibt, wie viele Einheiten physisch nachbestellt werden müssen.
 
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; 
-import { DynamoDBDocumentClient, ScanCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb"; 
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; 
-
 const docClient = DynamoDBDocumentClient.from(new DynamoDBClient({})); 
 const ses = new SESClient({});
 
