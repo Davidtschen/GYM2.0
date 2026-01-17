@@ -2,14 +2,14 @@ name: Test & Deploy All JS Lambdas
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  deploy-lambdas:
+  test-and-deploy-lambdas:
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,23 +17,40 @@ jobs:
       matrix:
         include:
           - name: BestellService
-            file: BestellService.mjs
+            prodFile: BestellService.mjs
+            testFile: BestellServiceTest.mjs
+
           - name: BillService
-            file: BillService.mjs
+            prodFile: BillService.mjs
+            testFile: BillServiceTest.mjs
+
           - name: CheckProducts
-            file: CheckProducts.mjs
+            prodFile: CheckProducts.mjs
+            testFile: CheckProductsTest.mjs
+
           - name: CheckUserpool
-            file: CheckUserpool.mjs
+            prodFile: CheckUserpool.mjs
+            testFile: CheckUserpoolTest.mjs
+
           - name: DeletionService
-            file: DeletionService.mjs
+            prodFile: DeletionService.mjs
+            testFile: DeletionServiceTest.mjs
+
           - name: LoggingService
-            file: LoggingService.mjs
+            prodFile: LoggingService.mjs
+            testFile: LoggingServiceTest.mjs
+
           - name: LoginTracking
-            file: LoginTracking.mjs
+            prodFile: LoginTracking.mjs
+            testFile: LoginTrackingTest.mjs
+
           - name: NotifyService
-            file: NotifyService.mjs
+            prodFile: NotifyService.mjs
+            testFile: NotifyServiceTest.mjs
+
           - name: PushUser
-            file: PushUser.mjs
+            prodFile: PushUser.mjs
+            testFile: PushUserTest.mjs
 
     defaults:
       run:
@@ -48,35 +65,51 @@ jobs:
         with:
           node-version: 18
 
-      - name: Run Lambda Test
+      # ---------------------------
+      # TESTS 
+      # ---------------------------
+      - name: Run Lambda Tests
         env:
           NODE_ENV: test
         run: |
           node -e "
-          import('./${{ matrix.file }}').then(m =>
-            import('fs').then(fs =>
-              m.handler(JSON.parse(fs.readFileSync('test.json')))
-                .then(r => {
-                  if (!r || r.statusCode >= 400) {
-                    console.error('Test failed for ${{ matrix.name }}', r);
-                    process.exit(1);
-                  }
-                })
+          import('./${{ matrix.testFile }}')
+            .then(m =>
+              import('fs').then(fs =>
+                m.runTest(JSON.parse(fs.readFileSync('test.json')))
+              )
             )
-          )
+            .catch(err => {
+              console.error('Test failed for ${{ matrix.name }}');
+              console.error(err);
+              process.exit(1);
+            });
           "
 
+      # ---------------------------
+      # AWS AUTH 
+      # ---------------------------
       - name: Configure AWS Credentials (OIDC)
+        if: github.ref == 'refs/heads/main'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::380652644070:role/GithubPipeline
           aws-region: eu-north-1
           audience: sts.amazonaws.com
 
-      - name: Zip Lambda
-        run: zip ${{ matrix.name }}.zip ${{ matrix.file }}
+      # ---------------------------
+      # BUILD 
+      # ---------------------------
+      - name: Zip Lambda (PROD only)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          zip ${{ matrix.name }}.zip ${{ matrix.prodFile }}
 
+      # ---------------------------
+      # DEPLOY
+      # ---------------------------
       - name: Deploy Lambda
+        if: github.ref == 'refs/heads/main'
         run: |
           aws lambda update-function-code \
             --function-name ${{ matrix.name }} \
