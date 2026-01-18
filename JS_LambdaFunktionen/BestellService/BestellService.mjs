@@ -56,7 +56,7 @@ export const handler = async () => {
             restockListText += `Bestand war ${currentAmount}, aufgefüllt auf ${maxAmount}. `;
             restockListText += `BITTE NACHBESTELLEN: ${orderQuantity} Stück.\n`;
             
-            console.log(⁠ Produkt ${product.p_name} aufgefüllt. Bedarf: ${orderQuantity} ⁠);
+            console.log(`Produkt ${product.p_name} aufgefüllt. Bedarf: ${orderQuantity}`);
         }
 
         // 4) Versand der detaillierten Liste an die Verwaltung
