@@ -52,10 +52,19 @@ async function runTest() {
     docMock.on(ScanCommand).rejects(new Error("DynamoDB down"));
 
     const { handler } = await import("./CheckProducts.mjs");
-    const res = await handler();
 
-    if (res.statusCode !== 500) {
-      throw new Error("Test 3 fehlgeschlagen: statusCode != 500");
+    let threw = false;
+    try {
+      await handler();
+    } catch (e) {
+      threw = true;
+      if (!String(e.message).includes("DynamoDB down")) {
+        throw new Error("Test 3 fehlgeschlagen: falscher Fehler");
+      }
+    }
+
+    if (!threw) {
+      throw new Error("Test 3 fehlgeschlagen: Handler hätte werfen müssen");
     }
   }
 
