@@ -1,15 +1,16 @@
-name: Test All JS Lambdas (no deploy)
+name: Test & Deploy All JS Lambdas
 
 on:
-  pull_request:
   push:
     branches: ["main"]
+  pull_request:
 
 permissions:
+  id-token: write
   contents: read
 
 jobs:
-  test-lambdas:
+  test-and-deploy-lambdas:
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,30 +18,39 @@ jobs:
       matrix:
         include:
           - name: BestellService
+            prodFile: BestellService.mjs
             testFile: BestellServiceTest.mjs
 
           - name: BillService
+            prodFile: BillService.mjs
             testFile: BillServiceTest.mjs
 
           - name: CheckProducts
+            prodFile: CheckProducts.mjs
             testFile: CheckProductsTest.mjs
 
           - name: CheckUserpool
+            prodFile: CheckUserpool.mjs
             testFile: CheckUserpoolTest.mjs
 
           - name: DeletionService
+            prodFile: DeletionService.mjs
             testFile: DeletionServiceTest.mjs
 
           - name: LoggingService
+            prodFile: LoggingService.mjs
             testFile: LoggingServiceTest.mjs
 
           - name: LoginTracking
+            prodFile: LoginTracking.mjs
             testFile: LoginTrackingTest.mjs
 
           - name: NotifyService
+            prodFile: NotifyService.mjs
             testFile: NotifyServiceTest.mjs
 
           - name: PushUser
+            prodFile: PushUser.mjs
             testFile: PushUserTest.mjs
 
     defaults:
@@ -48,26 +58,54 @@ jobs:
         working-directory: JS_LambdaFunktionen/${{ matrix.name }}
 
     steps:
+      # ---------------------------
+      # CHECKOUT
+      # ---------------------------
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # ---------------------------
+      # NODE SETUP
+      # ---------------------------
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # Installiert Dependencies NUR wenn ein package.json im Lambda-Ordner existiert
-      - name: Install dependencies (if present)
-        shell: bash
-        run: |
-          if [ -f package.json ]; then
-            echo "package.json gefunden -> npm ci"
-            npm ci
-          else
-            echo "Kein package.json im Ordner -> überspringe npm install"
-          fi
-
+      # ---------------------------
+      # TESTS
+      # ---------------------------
       - name: Run Lambda Tests
         env:
           NODE_ENV: test
-        run: node ${{ matrix.testFile }}
+        run: |
+          node ${{ matrix.testFile }}
+
+      # ---------------------------
+      # AWS AUTH 
+      # ---------------------------
+      - name: Configure AWS Credentials (OIDC)
+        if: github.ref == 'refs/heads/main'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::380652644070:role/GithubPipeline
+          aws-region: eu-north-1
+          audience: sts.amazonaws.com
+
+      # ---------------------------
+      # BUILD 
+      # ---------------------------
+      - name: Zip Lambda
+        if: github.ref == 'refs/heads/main'
+        run: |
+          zip ${{ matrix.name }}.zip ${{ matrix.prodFile }}
+
+      # ---------------------------
+      # DEPLOY
+      # ---------------------------
+      - name: Deploy Lambda
+        if: github.ref == 'refs/heads/main'
+        run: |
+          aws lambda update-function-code \
+            --function-name ${{ matrix.name }} \
+            --zip-file fileb://${{ matrix.name }}.zip
