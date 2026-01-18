@@ -54,7 +54,7 @@ export const handler = async () => {
             // Dokumentation für die E-Mail mit exakter Nachfüll-Info
             restockListText += `- ${product.p_name} (ID: ${product.product_id}): `;
             restockListText += `Bestand war ${currentAmount}, aufgefüllt auf ${maxAmount}. `;
-            restockListText += ⁠ BITTE NACHBESTELLEN: ${orderQuantity} Stück.\n ⁠;
+            restockListText += `BITTE NACHBESTELLEN: ${orderQuantity} Stück.\n`;
             
             console.log(⁠ Produkt ${product.p_name} aufgefüllt. Bedarf: ${orderQuantity} ⁠);
         }
