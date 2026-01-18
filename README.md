@@ -28,21 +28,9 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 ## Funktionen
 * Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
 * Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
-* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden per Account gekauft und am Ende des Monats mit dem monatliche Betrag dazu abgebucht.
-* Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die noch übrig sind. Diese wird als LOG-Datei ausgegeben und kann entsprechend dem Lieferanten gegeben werden. 
+* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden separat vom Zahlungsannieter verwaltet.
+* Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die verkauft wurden. Diese wird als CSV-Datei gespeichert und dies kann der Verwalter entsprechend einsehen. 
 
 ## Skizze
 ![ProjektSkizze](Wiki/ProjektSkizze.jpg)
 
-
-## Programmspezifisches
-
-### Download
-
-* wenn überhaupt nötig
-
-### Ausführung
-* Step-by-Step wie man das aufsetzt bzw nur Anwendungsschicht
-```
-code blocks for commands
-```     
