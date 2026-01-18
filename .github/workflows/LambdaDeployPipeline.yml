@@ -43,10 +43,6 @@ jobs:
           - name: PushUser
             testFile: PushUserTest.mjs
 
-    defaults:
-      run:
-        working-directory: JS_LambdaFunktionen/${{ matrix.name }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -56,22 +52,13 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: JS_LambdaFunktionen/${{ matrix.name }}/package-lock.json
+          cache-dependency-path: package-lock.json
 
-      - name: Install dependencies (if present)
-        shell: bash
-        run: |
-          if [ -f package-lock.json ]; then
-            echo "package-lock.json gefunden -> npm ci"
-            npm ci
-          elif [ -f package.json ]; then
-            echo "package.json gefunden aber kein package-lock.json -> npm install"
-            npm install
-          else
-            echo "Kein package.json im Ordner -> überspringe npm install"
-          fi
+      - name: Install dependencies (root)
+        run: npm ci
 
       - name: Run Lambda Tests
+        working-directory: JS_LambdaFunktionen/${{ matrix.name }}
         env:
           NODE_ENV: test
           AWS_REGION: eu-central-1
