@@ -31,10 +31,10 @@ async function runTest() {
       throw new Error("UpdateCommand darf hier nicht aufgerufen werden");
     });
 
-    // ✅ Dateiname in import: vermutlich loginTracking.mjs (case-sensitive!)
+    //  Dateiname in import: vermutlich loginTracking.mjs (case-sensitive!)
     const { handler } = await import("./LoginTracking.mjs");
 
-    // ✅ Kein Crash: request/userAttributes existieren, aber ohne sub
+    //  Kein Crash: request/userAttributes existieren, aber ohne sub
     const res = await handler({ request: { userAttributes: {} } });
 
     void res;
