@@ -54,15 +54,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: npm
+          cache-dependency-path: JS_LambdaFunktionen/${{ matrix.name }}/package-lock.json
 
-      # Installiert Dependencies NUR wenn ein package.json im Lambda-Ordner existiert
       - name: Install dependencies (if present)
         shell: bash
         run: |
-          if [ -f package.json ]; then
-            echo "package.json gefunden -> npm ci"
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json gefunden -> npm ci"
             npm ci
+          elif [ -f package.json ]; then
+            echo "package.json gefunden aber kein package-lock.json -> npm install"
+            npm install
           else
             echo "Kein package.json im Ordner -> überspringe npm install"
           fi
@@ -70,4 +74,6 @@ jobs:
       - name: Run Lambda Tests
         env:
           NODE_ENV: test
+          AWS_REGION: eu-central-1
+          AWS_DEFAULT_REGION: eu-central-1
         run: node ${{ matrix.testFile }}
