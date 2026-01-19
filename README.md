@@ -23,6 +23,7 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 * [Projektdetails](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Projektdetails.md)
 * [Spezifikationen](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Spezifikationen.md)
 * [Anleitung AWS Lambda](Wiki/Anleitungen/LambdaDoku.pdf)
+* [Anleitung API Gateway](Wiki/Anleitungen/APIGatewayDoku.pdf)
 * [Anleitung Amazon Eventbridge](Wiki/Anleitungen/EventbridgeDoku.pdf)
 * [Anleitung Amazon Simple Email Service (SES)](Wiki/Anleitungen/SESDoku.pdf)
 * [Pipeline-Dokumentation](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/PipelineDoku.md)
