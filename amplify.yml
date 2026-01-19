@@ -1,7 +1,7 @@
 version: 1
 applications:
-  - frontend:
-      appRoot: HTML_Front
+  - appRoot: HTML_Front
+    frontend:
       phases:
         preBuild:
           commands:
