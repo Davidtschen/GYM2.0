@@ -31,7 +31,7 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 ## Funktionen
 * Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
 * Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
-* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden separat vom Zahlungsannieter verwaltet.
+* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden separat vom Zahlungsanbieter verwaltet.
 * Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die verkauft wurden. Diese wird als CSV-Datei gespeichert und dies kann der Verwalter entsprechend einsehen. 
 
 ## Skizze
