@@ -1,0 +1,66 @@
+name: Test All JS Lambdas (no deploy)
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test-lambdas:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: BestellService
+            testFile: BestellServiceTest.mjs
+
+          - name: BillService
+            testFile: BillServiceTest.mjs
+
+          - name: CheckProducts
+            testFile: CheckProductsTest.mjs
+
+          - name: CheckUserpool
+            testFile: CheckUserpoolTest.mjs
+
+          - name: DeletionService
+            testFile: DeletionServiceTest.mjs
+
+          - name: LoggingService
+            testFile: LoggingServiceTest.mjs
+
+          - name: LoginTracking
+            testFile: LoginTrackingTest.mjs
+
+          - name: NotifyService
+            testFile: NotifyServiceTest.mjs
+
+          - name: PushUser
+            testFile: PushUserTest.mjs
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies (root)
+        run: npm ci
+
+      - name: Run Lambda Tests
+        working-directory: JS_LambdaFunktionen/${{ matrix.name }}
+        env:
+          NODE_ENV: test
+          AWS_REGION: eu-central-1
+          AWS_DEFAULT_REGION: eu-central-1
+        run: node ${{ matrix.testFile }}

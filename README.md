@@ -22,34 +22,18 @@ GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige 
 # Projekt
 * [Projektdetails](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Projektdetails.md)
 * [Spezifikationen](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Spezifikationen.md)
+* [Anleitung AWS Lambda](Wiki/Anleitungen/LambdaDoku.pdf)
+* [Anleitung Amazon Eventbridge](Wiki/Anleitungen/EventbridgeDoku.pdf)
+* [Anleitung Amazon Simple Email Service (SES)](Wiki/Anleitungen/SESDoku.pdf)
+* [Pipeline-Dokumentation](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/PipelineDoku.md)
+* [Vorgehen fürs lokale Testen](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/VorgehenLokalerTests.md)
 
 ## Funktionen
 * Mitglieder können jederzeit das Studio anhand ihrer Logingaten betreten. Es erfolgt eine Eingabe und nach einer Sicherheitsprüfung kann man das Gym betreten.
 * Bevor es einen Login gibt, könne sich Mitglieder im Studio registrieren.
-* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden per Account gekauft und am Ende des Monats mit dem monatliche Betrag dazu abgebucht.
-* Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die noch übrig sind. Diese wird als LOG-Datei ausgegeben und kann entsprechend dem Lieferanten gegeben werden. 
+* Mitglieder können Einkäufe tätigen für Snacks/Getränke. Diese werden separat vom Zahlungsannieter verwaltet.
+* Am Ende des Monats gibt es eine Übersicht an Snacks/Getränke, die verkauft wurden. Diese wird als CSV-Datei gespeichert und dies kann der Verwalter entsprechend einsehen. 
 
 ## Skizze
-![ProjektSkizze](ProjektSkizze.jpg)
+![ProjektSkizze](Wiki/ProjektSkizze.jpg)
 
-
-## Programmspezifisches
-
-### AWS
-Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwendet:
-
-* alle Tools auflisten
-
-### Download
-
-* wenn überhaupt nötig
-
-### Ausführung
-* Step-by-Step wie man das aufsetzt bzw nur Anwendungsschicht
-```
-code blocks for commands
-```     
-
-## Version History 
-* V0.1 Fundemente gesetzt und Funktionalität xxx umgesetzt
-* V0.2 

@@ -1,0 +1,8 @@
+{
+  "request": {
+    "userAttributes": {
+      "sub": "first_123"
+    }
+  },
+  "response": {}
+}
