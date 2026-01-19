@@ -100,7 +100,6 @@
 | produkt_id         | String   | eindeutige produkt-id    (UUID)       |
 | p_name       | String   | name des produkts               |
 | preis              | Number  | einzelpreis                     |
-|member_id           | String  | Member-ID               (UUID)         |
 | order_date         | String  | Datum (ISO-8601 empfohlen)      |
 
 { 
@@ -108,7 +107,6 @@
    "produkt_id": "8b68e248-e9d7-4e62-8d13-6dde1347c6e1",
    "p_name" : "Harzer Käse",
    "preis" : "3.99",
-   "member_id": "060f0934-a21d-4439-b850-b327ff6b3e10",
    "order_date" : "2025-01-12"
 
 }
