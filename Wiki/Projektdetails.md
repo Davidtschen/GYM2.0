@@ -12,6 +12,67 @@ Für das Projekt werden hauptsächlich Funktionen der Amazon Web Services verwen
 - Amplify
 - Cloud Watch
 
+#### **AWS Amplify**
+
+AWS Amplify wird in unserem Projekt zur Bereitstellung und zum Hosting des Frontends verwendet.
+Es handelt sich dabei um einen vollständig serverlosen Hosting-Dienst, der speziell für Webanwendungen mit HTML, CSS und JavaScript konzipiert ist.
+Durch den Einsatz von AWS Amplify entfällt die Notwendigkeit, eigene Webserver oder Container zu verwalten.
+
+AWS Amplify übernimmt automatisch die Auslieferung der Webanwendung über ein globales Content Delivery Network (CDN),
+stellt eine HTTPS-gesicherte Verbindung bereit und sorgt für eine performante und zuverlässige Erreichbarkeit der Anwendung.
+
+Zusätzlich kann AWS Amplify direkt mit einem GitHub-Repository verknüpft werden.
+Dadurch werden Änderungen am Frontend-Code bei jedem Commit automatisch erkannt, gebaut und deployed.
+Diese kontinuierliche Integration ermöglicht eine schnelle und konsistente Aktualisierung der Webanwendung, ohne manuelle Deployments durchführen zu müssen.
+
+In Bezug auf unser Projekt wird AWS Amplify für die folgenden Frontend-Komponenten eingesetzt:
+
+- Start- und Login-Seiten für Mitglieder
+
+- Registrierungsseiten mit projektspezifischen Eingabefeldern
+
+- Weboberfläche für den Snack- und Getränkeautomaten
+
+Das Frontend wird als statische Anwendung betrieben und kommuniziert ausschließlich über definierte API-Endpunkte mit dem Backend.
+Zusätzlich dient AWS Amplify als zentrale Schnittstelle zwischen dem Frontend und AWS Cognito.
+Über diese Integration werden Authentifizierungsprozesse wie Registrierung, Anmeldung und Abmeldung aus dem Frontend heraus initiiert und verarbeitet.
+
+Sicherheitsaspekte:
+AWS Amplify stellt automatisch eine HTTPS-Verschlüsselung bereit, sodass alle Datenübertragungen zwischen Browser, Cognito und Anwendung geschützt sind.
+Da es sich um ein rein statisches Frontend handelt, werden in Amplify selbst keine sensiblen Daten gespeichert.
+Die Authentifizierung und Autorisierung erfolgen über AWS Cognito und das Backend über AWS Lambda und API Gateway.
+
+Durch die Nutzung von AWS Amplify realisiert eine skalierbare, kosteneffiziente und wartungsarme Frontend-Infrastruktur.
+
+#### **AWS Cognito**
+
+AWS Cognito wird in unserem Projekt zur Authentifizierung und Verwaltung der Mitgliederkonten eingesetzt.
+Der Dienst übernimmt die sichere Registrierung, Anmeldung und Verwaltung von Benutzern, ohne dass sensible Zugangsdaten wie Passwörter im eigenen Backend gespeichert oder verarbeitet werden müssen.
+Dadurch wird die Sicherheit erhöht und der Implementierungsaufwand reduziert.
+
+Die Registrierung der Mitglieder erfolgt über ein eigenes Frontend-Formular, da im Projekt zusätzliche, projektspezifische Informationen erfasst werden müssen,
+wie beispielsweise Adressdaten. Diese Daten werden an AWS Cognito übermittelt und dort sicher gespeichert.
+Der Login hingegen erfolgt komplett über die von AWS Cognito bereitgestellte HostetUI.
+
+Beim Login und bei der Registrierung triggert AWS Cognito automatisch vordefinierte Lambda-Funktionen (Cognito Triggers).
+Diese Lambda-Funktionen werden ereignisbasiert ausgeführt, beispielsweise:
+
+nach erfolgreicher Registrierung eines neuen Mitglieds,
+
+während oder nach einem Login-Vorgang,
+
+zur Protokollierung von Anmeldeereignissen,
+
+oder zur Initialisierung von Benutzerdaten im Backend.
+
+In unserem Projekt werden diese Trigger genutzt, um zusätzliche Geschäftslogik auszuführen, wie das Anlegen eines Mitgliedseintrags in der Datenbank und
+das Erfassen von Login-Aktivitäten.
+
+Nach erfolgreicher Authentifizierung stellt AWS Cognito JSON Web Tokens (JWTs) aus,
+die vom Frontend zur Identifikation des Benutzers verwendet und bei geschützten Backend-Endpunkten an API Gateway und AWS Lambda weitergegeben werden können.
+
+Durch den Einsatz von AWS Cognito wird eine skalierbare, sichere und wartungsarme Benutzerverwaltung realisiert, die nahtlos mit AWS Amplify, AWS Lambda und API Gateway zusammenarbeitet.
+
 #### **AWS Lambda**
 AWS Lambda führt den Code automatisch als Reaktion auf Ereignisse aus und skaliert dynamisch. AWS Lambda ist zudem ein serverloser Computing Dienst, wodurch man deutlich weniger Code schreiben muss im Vergleich zu einem serverabhängigen Dienst.  
 Darüberhinaus zahlen Kunden nur für die tatsächliche Rechenzeit, was es kosteneffizient macht.
