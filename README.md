@@ -3,7 +3,7 @@
 Warum noch ein Gym mit Personal, wenn man 24/7 mit einfachen technischen Mitteln ein Studio betreten kann?
 Durch einfaches Webdesign und lauffähigen Containern ist diese Applikation ein Allrounder für die Fitness-Szene!
 
-GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige Automatisierung. Mitglieder verwalten Training, Zahlungen und Einkäufe bequem online und die Automaten für Snacks/Getränke verwalten automatisch den Lagerbestand über das System.
+GYM 2.0 revolutioniert das klassische Fitnessstudio-Konzept durch vollständige Automatisierung. Mitglieder verwalten tätigen Einkäufe bequem online, können sich selbstständig anmelden und die Automaten für Snacks/Getränke verwalten automatisch den Lagerbestand über das System.
 # Allgemeines
 * [Teamspezifisches](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Teamspezifisches.md)
 * [Organisatorisches](https://github.com/GYM2-0Org/GYM2.0/blob/main/Wiki/Organisatorisches.md)
